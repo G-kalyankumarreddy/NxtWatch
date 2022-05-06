@@ -103,6 +103,7 @@ export const SearchButton = styled.button`
 export const FailureViewContainer = styled.div`
   background-color: ${props => (props.bgColor ? ' #181818' : '#f9f9f9')};
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

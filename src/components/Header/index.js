@@ -5,7 +5,9 @@ import Cookies from 'js-cookie'
 import {FaMoon} from 'react-icons/fa'
 import {FiSun, FiLogOut} from 'react-icons/fi'
 import {GiHamburgerMenu} from 'react-icons/gi'
+import {AiOutlineClose} from 'react-icons/ai'
 
+import {SidebarSmallerDevices} from '../Sidebar'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 import {
@@ -16,8 +18,14 @@ import {
   CancelButton,
   ConfirmButton,
   ButtonsContainer,
+  LogoutButtonContainer,
   IconButton,
+  ThemeButtons,
   ProfileImage,
+  HamburgerButton,
+  MenuContainer,
+  CloseButton,
+  LogoutButton,
 } from './styledComponents'
 
 const Header = props => {
@@ -40,9 +48,14 @@ const Header = props => {
           <Popup
             modal
             trigger={
-              <IconButton fontColor={isDark}>
-                <FiLogOut />
-              </IconButton>
+              <LogoutButtonContainer>
+                <IconButton fontColor={isDark}>
+                  {' '}
+                  <FiLogOut />
+                </IconButton>
+
+                <LogoutButton fontColor={isDark}>Logout</LogoutButton>
+              </LogoutButtonContainer>
             }
           >
             {close => (
@@ -63,6 +76,26 @@ const Header = props => {
           </Popup>
         )
 
+        const MenuPopUp = () => (
+          <Popup
+            modal
+            trigger={
+              <HamburgerButton fontColor={isDark}>
+                <GiHamburgerMenu />
+              </HamburgerButton>
+            }
+          >
+            {close => (
+              <MenuContainer bgColor={isDark}>
+                <CloseButton fontColor={isDark} onClick={() => close()}>
+                  <AiOutlineClose />
+                </CloseButton>
+                <SidebarSmallerDevices />
+              </MenuContainer>
+            )}
+          </Popup>
+        )
+
         const websiteLogo = isDark
           ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
@@ -73,13 +106,14 @@ const Header = props => {
               <WebsiteLogo src={websiteLogo} alt="website logo" />
             </Link>
             <ButtonsContainer>
-              <IconButton onClick={onClickingThemeButton} fontColor={isDark}>
+              <ThemeButtons onClick={onClickingThemeButton} fontColor={isDark}>
                 {isDark ? <FiSun /> : <FaMoon />}
-              </IconButton>
-              <IconButton fontColor={isDark}>
-                <GiHamburgerMenu />
-              </IconButton>
-
+              </ThemeButtons>
+              {MenuPopUp()}
+              <ProfileImage
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
+                alt="profile"
+              />
               {LogoutPopup()}
             </ButtonsContainer>
           </HeaderContainer>

@@ -7,7 +7,7 @@ import {AiOutlineLike, AiOutlineDislike} from 'react-icons/ai'
 import {MdPlaylistAdd} from 'react-icons/md'
 
 import Header from '../Header'
-import Sidebar from '../Sidebar'
+import {Sidebar} from '../Sidebar'
 import LoadingView from '../Loader'
 
 import NxtWatchContext from '../../context/NxtWatchContext'

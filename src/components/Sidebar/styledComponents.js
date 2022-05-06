@@ -6,8 +6,12 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
-
-  flex-grow: 1;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+export const SidebarSmallerDevicesContainer = styled.div`
+  width: 100%;
 `
 
 export const MenuOptionsContainer = styled.div`
@@ -19,6 +23,7 @@ export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 14px;
+  text-decoration: none;
   color: ${props => (props.fontColor ? '#f1f1f1' : '#1e293b')};
 `
 
@@ -50,30 +55,18 @@ export const ContactUs = styled.h1`
   margin-bottom: 10px;
 `
 
-export const ConstactUsIconsContainer = styled.div`
+export const ContactUsLogosContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 0px;
-  padding-left: 10px;
   align-items: center;
   height: 30px;
 `
 
-export const FacebookIcon = styled.p`
-  color: #00306e;
-  font-size: 25px;
-  margin-right: 15px;
-`
-
-export const TwitterIcon = styled.p`
-  color: #3b82f6;
-  font-size: 27px;
-  margin-right: 15px;
-`
-
-export const LinkedInIcon = styled.p`
-  color: #00306e;
-  font-size: 25px;
+export const ContactUsLogo = styled.img`
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
 `
 
 export const ContactUsDescription = styled.p`

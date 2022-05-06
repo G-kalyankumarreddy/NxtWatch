@@ -5,7 +5,7 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {MdSearch} from 'react-icons/md'
 
 import Header from '../Header'
-import Sidebar from '../Sidebar'
+import {Sidebar} from '../Sidebar'
 import LoadingView from '../Loader'
 import VideoItem from '../VideoItem'
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -113,7 +113,7 @@ class Home extends Component {
               We are having some trouble to complete your request. Please try
               again.
             </FailureViewDescription>
-            <FailureViewButton onClick={this.onClickRetryButtom}>
+            <FailureViewButton onClick={this.onClickRetryButton}>
               Retry
             </FailureViewButton>
           </FailureViewContainer>
